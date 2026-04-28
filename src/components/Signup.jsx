@@ -18,7 +18,7 @@ const initialErrors = {
 };
 const errorMessages = {
 	email: "Geçerli bir email adresi yaz",
-	password: "Şifre en az 4 karakterden oluşmalı",
+	password: "Şifre en az 6 karakterden oluşmalı",
 };
 export default function Signup() {
 	const [form, setForm] = useState(initialForm);
@@ -60,7 +60,7 @@ export default function Signup() {
 					data-testid="password"
 					value={form.password}
 				/>
-				{form.password && form.password.length < 4 ? (
+				{form.password && form.password.length < 6 ? (
 					<div>{errorMessages.password}</div>
 				) : null}
 			</FormGroup>
@@ -79,7 +79,7 @@ export default function Signup() {
 				disabled={
 					!form.terms ||
 					!validateEmail(form.email) ||
-					form.password.length < 4
+					form.password.length < 6
 				}
 			>
 				Kaydet
